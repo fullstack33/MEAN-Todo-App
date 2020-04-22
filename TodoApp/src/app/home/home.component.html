@@ -1,0 +1,14 @@
+<app-navigation></app-navigation>
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav>
+        <app-sidebar class="side-bar" #s></app-sidebar>
+    </mat-sidenav>
+    
+    <mat-sidenav-content class="container">
+
+        <button aria-hidden="false" class="menu-icon" (click)="sidenav.toggle()" mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <router-outlet node="hii"></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

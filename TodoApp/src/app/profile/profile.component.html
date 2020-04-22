@@ -1,0 +1,43 @@
+<div class="profile" *ngIf="currentUser">
+    <mat-card class="card">
+        <mat-card-title>{{currentUser.userName}}</mat-card-title>
+        <br>
+        <mat-card-content>
+            <form #profileFile="ngForm">
+                <input type="file" ngModel name="pic" (change)="fileSubmit(currentUser._id, $event.target.files)"> <br><br>
+            </form>
+        </mat-card-content>
+    </mat-card>
+    <mat-card class="card">
+        <mat-card-content>
+            <form #profileForm="ngForm">
+                <!-- {{profileForm.value| json}} -->
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>First Name</mat-label>
+                    <input matInput required #firstName="ngModel" name="firstName" [(ngModel)]="currentUser.firstName"
+                        placeholder="First Name">
+                </mat-form-field>
+
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput required #firstName="ngModel" name="lastName" [(ngModel)]="currentUser.lastName"
+                        placeholder="Last Name">
+                </mat-form-field>
+
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>User Name</mat-label>
+                    <input matInput required #firstName="ngModel" name="userName" [(ngModel)]="currentUser.userName"
+                        placeholder="User Name">
+                </mat-form-field>
+
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput disabled required #firstName="ngModel" name="email" [(ngModel)]="currentUser.email"
+                        placeholder="Email">
+                </mat-form-field>
+                <button mat-raised-button color="primary"
+                    (click)="updateDetails(currentUser._id, profileForm.value)">Update details</button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

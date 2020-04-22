@@ -1,0 +1,17 @@
+<div class="side-bar">
+    <mat-list *ngIf="currentUser">
+        <div class="img">
+            <img *ngIf="currentUser.profile; else esleImg" src="{{img}}" alt="profile">
+            <ng-template  #esleImg><img src="assets/images/user.png" alt=""></ng-template>
+            <br>
+            <h4>{{currentUser.firstName}} {{currentUser.lastName}}</h4>
+        </div>
+        <mat-list-item routerLink="/dashboard">
+            <mat-icon aria-hidden="false">subject</mat-icon> Todos
+        </mat-list-item>
+        <mat-list-item routerLink="/dashboard/profile">
+            <mat-icon aria-hidden="false">person</mat-icon> Profile
+        </mat-list-item>
+        <mat-list-item (click)="logout()"> Logout </mat-list-item>
+    </mat-list>
+</div>

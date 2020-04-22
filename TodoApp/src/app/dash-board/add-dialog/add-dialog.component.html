@@ -1,0 +1,22 @@
+<mat-card-title style="text-align: center;">Add Todo</mat-card-title>
+<br>
+<mat-card-content>
+    <form #todoForm='ngForm'>
+        <!-- {{todoForm.value | json}} -->
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Title of Todo</mat-label>
+            <input matInput required ngModel name="title" placeholder="title">
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Todo Details</mat-label>
+            <textarea matInput required ngModel name="body" rows="14" placeholder="Todo Details"></textarea>
+        </mat-form-field>
+
+        <button [disabled]="todoForm.form.invalid" mat-raised-button class="full-width" color="primary"
+            (click)="saveTodo(todoForm.value)">Save</button>
+    </form>
+</mat-card-content>
+<mat-card-content>
+    <button class="full-width" mat-dialog-close mat-raised-button color="warn">Cancel</button>
+</mat-card-content>

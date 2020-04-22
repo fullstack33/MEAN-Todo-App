@@ -1,0 +1,14 @@
+.example-container {
+    position: absolute;
+    top: 58px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+  }
+  .container {
+    padding: 0px 20px;
+  }
+  .menu-icon{
+    margin: 15px 0px;
+  }

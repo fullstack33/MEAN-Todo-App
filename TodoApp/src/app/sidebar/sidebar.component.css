@@ -1,0 +1,21 @@
+.side-bar {
+  width: 200px;
+  padding: 20px 0px;
+  text-align: center;
+}
+img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+.img{
+    border-bottom: 1px solid rgb(230, 228, 228);
+}
+mat-list-item:hover{
+    cursor: pointer;
+    background-color: #e7e7e7;
+}
+mat-list-item {
+    min-height: 48px;
+    border-bottom: 1px solid rgb(212, 211, 211);
+}

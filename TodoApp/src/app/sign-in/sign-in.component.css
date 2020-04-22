@@ -1,0 +1,15 @@
+.sign-in{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    margin: 10px;
+}
+.full-width{
+    width: 100%;
+}
+.title{
+    text-align: center;
+}

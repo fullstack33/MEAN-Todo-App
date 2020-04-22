@@ -1,0 +1,16 @@
+.sign-up{
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    max-width: 500px;
+    margin: 10px;
+}
+.title{
+    text-align: center;
+}
+.full-width{
+    width: 100%;
+}

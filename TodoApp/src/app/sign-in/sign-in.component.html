@@ -1,0 +1,44 @@
+<div class="sign-in">
+    <mat-card class="card">
+        <mat-card-title class="title">Sign In</mat-card-title>
+        <br>
+        <mat-card-content>
+            <form #signInForm='ngForm' class="example-form">
+                <!-- {{ signInForm.value | json }} -->
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Email</mat-label>
+                    <input matInput 
+                        ngModel
+                        required type="email"
+                        name="email"
+                        placeholder="Ex. abc@gmail.com"
+                    >
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Password</mat-label>
+                    <input matInput 
+                        required
+                        [type]="hide ? 'password' : 'text'" 
+                        #password="ngModel"
+                        ngModel
+                        name="password"
+                        placeholder="password"
+                    >
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+
+                <button class="full-width" 
+                    (click)="signInUser(signInForm.value)" 
+                    [disabled]="signInForm.form.invalid"
+                    mat-raised-button 
+                    color="primary">
+                    Sign In
+                </button>
+            </form>
+        </mat-card-content>
+        <p style="text-align: right;">Don't have an account ? <a routerLink="/signUp">Sign Up</a></p> 
+    </mat-card>
+</div>

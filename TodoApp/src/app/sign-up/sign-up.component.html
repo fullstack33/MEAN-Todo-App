@@ -1,0 +1,104 @@
+<div class="sign-up">
+    <mat-card class="card">
+        <mat-card-title class="title">Sign Up</mat-card-title>
+        <br>
+        <mat-card-content>
+            <form #userForm="ngForm" novalidate class="example-form">
+
+                <!-- {{ userForm.value | json }} -->
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>First Name</mat-label>
+                    <input matInput 
+                        required
+                        #firstName = "ngModel"
+                        name="firstName"
+                        [(ngModel)]="userModel.firstName"
+                        placeholder="Nawal"
+                    >
+                    <mat-error *ngIf="firstName.invalid">First Name is required</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput 
+                        required
+                        #lastName="ngModel"
+                        name="lastName"
+                        [(ngModel)]="userModel.lastName"
+                        placeholder="Kishor"
+                    >
+                    <mat-error *ngIf="lastName.invalid">Last Name is required</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>User Name</mat-label>
+                    <input matInput
+                        required
+                        #userName="ngModel"
+                        name="userName"
+                        [(ngModel)]="userModel.userName"
+                        placeholder="Nawal"
+                    >
+                    <mat-error *ngIf="userName.invalid">User Name is required</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Email</mat-label>
+                    <input matInput 
+                        required
+                        #email="ngModel"
+                        name="email"
+                        [(ngModel)]="userModel.email"
+                        type="email" placeholder="nawal@gmail.com"
+                    >
+                    <mat-error *ngIf="email.invalid">Email is required</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Phone</mat-label>
+                    <input matInput 
+                        required
+                        #phone="ngModel"
+                        name="phone"
+                        [(ngModel)]="userModel.phone"
+                        type="tel" placeholder="Phone Number"
+                    >
+                    <mat-error *ngIf="phone.invalid">Phone Number is required</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Password</mat-label>
+                    <input matInput 
+                        required
+                        [type]="hide ? 'password' : 'text'" 
+                        #password="ngModel"
+                        name="password"
+                        [(ngModel)]="userModel.password"
+                        placeholder="password"
+                    >
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <mat-error *ngIf="password.invalid">Password is required</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Confirm Password</mat-label>
+                    <input matInput
+                        required
+                        type="password" 
+                        #confirmPassword="ngModel"
+                        name="confirmPassword"
+                        [(ngModel)]="userModel.confirmPassword"
+                        placeholder="Confirm password"
+                    >
+                    <mat-error *ngIf="confirmPassword.invalid">Confirm Password is required</mat-error>
+                </mat-form-field>
+
+                <button [disabled]="userForm.form.invalid" class="btn-block full-width" (click)="signUpUser()" mat-raised-button color="primary">Sign Up</button>
+            
+            </form>
+        </mat-card-content>
+        <p class="text-right"> Already have an account ? <a routerLink="/signIn"> Sign In </a></p>
+    </mat-card>
+</div>
